@@ -13,8 +13,6 @@ pub enum Msg {
     Update,
 }
 
-struct Dumb;
-
 impl Component for Wrapper {
     type Message = Msg;
     type Properties = ();
@@ -39,7 +37,7 @@ impl Component for Wrapper {
     fn view(&self) -> Html {
         log::info!("render sims");
         html! {
-        <Tabs<Dumb>>
+        <Tabs>
             <div>
                 <Card title="above header"/>
                 <h1>{"tab 1"}</h1>
@@ -50,7 +48,7 @@ impl Component for Wrapper {
                 <Custom content="tab 2"/>
                 {html!{}}
             </div>
-        </Tabs<Dumb>>
+        </Tabs>
         }
     }
 }

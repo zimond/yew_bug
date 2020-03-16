@@ -1,11 +1,9 @@
-use std::marker::PhantomData;
 use yew::prelude::*;
 
-pub struct Tabs<T: 'static> {
+pub struct Tabs {
     link: ComponentLink<Self>,
     selected: usize,
     children: Children,
-    marker: PhantomData<T>,
     onchange: Callback<usize>,
 }
 
@@ -20,7 +18,7 @@ pub struct Props {
     pub onchange: Callback<usize>,
 }
 
-impl<T: 'static> Component for Tabs<T> {
+impl Component for Tabs {
     type Message = Msg;
     type Properties = Props;
 
@@ -29,7 +27,6 @@ impl<T: 'static> Component for Tabs<T> {
             selected: 0,
             link,
             children: props.children,
-            marker: PhantomData,
             onchange: props.onchange,
         }
     }
